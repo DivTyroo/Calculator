@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #f0f0f0;
+          font-family: Arial, sans-serif;
+      }
+      .calculator {
+          width: 320px;
+          border: 1px solid black;
+          padding: 10px;
+          background-color: black;
+          border-radius: 10px;
+      }
+      .output {
+          background: white;
+          color: black;
+          font-size: 20px;
+          padding: 15px;
+          text-align: end;
+          width: 100%;
+          border-radius: 5px;
+          margin-bottom: 10px;
+      }
+      .keys {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 5px;
+      }
+      .key, .ac, .enter {
+          background: rgb(110, 136, 142);
+          padding: 20px;
+          font-size: 25px;
+          border: none;
+          border-radius: 5px;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+      .key:hover, .ac:hover, .enter:hover {
+          background-color: bisque;
+          color: black;
+      }
+      .enter {
+          grid-column: 4 / 5;
+          grid-row: 2 / span 4;
+          background: rgb(32, 66, 235);
+      }
+      .ac {
+          background: rgb(255, 0, 0);
+      }
+      .ac:hover {
+          background-color: bisque;
+          color: black;
+      }
+  </style>
+    
+</head>
+<body>
+        <div class="calculator">
+            <input class="output" placeholder="0">
+            <div class="keys">
+              <button class="key">+</button>
+              <button class="key">-</button>
+              <button class="key">*</button>
+              <button class="key">/</button>
+              <button class="key">7</button>
+              <button class="key">8</button>
+              <button class="key">9</button>
+              <button class="key">4</button>
+              <button class="key">5</button>
+              <button class="key">6</button>
+              <button class="key">1</button>
+              <button class="key">2</button>
+              <button class="key">3</button>
+              <button class="key">0</button>
+              <button class="key">.</button>
+              <button class="ac">AC</button>
+              <button class="key enter">=</button>
+            </div>
+          </div>
+      </div>
+      <script>
+
+        let btn = document.querySelectorAll("button");
+        for(let i of btn){
+            i.onclick = function(){
+                console.log(i.innerText)
+                if(i.innerText == "="){
+                   
+                   let val  = document.querySelector("input").value;
+                   console.log(eval(val))
+                   document.querySelector("input").value = eval(val)
+                }
+                else if(i.innerText=="AC"){
+                    document.querySelector("input").value= ``
+                }
+                else{
+
+                    document.querySelector("input").value +=  i.innerText;
+                }
+            }
+        }
+        
+      </script>
+</body>
+</html>
+
+
